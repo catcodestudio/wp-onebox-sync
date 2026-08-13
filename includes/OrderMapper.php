@@ -76,7 +76,7 @@ class OrderMapper {
 			$ship_cost = round( (float) $order->get_shipping_total() + (float) $order->get_shipping_tax(), 2 );
 			if ( $ship_cost > 0 ) {
 				$ship_title = (string) $order->get_shipping_method();
-				$ship_title = '' !== $ship_title ? $ship_title : __( 'Доставка', 'onebox-sync-for-woocommerce' );
+				$ship_title = '' !== $ship_title ? $ship_title : __( 'Shipping', 'catcode-order-sync-with-onebox-for-woocommerce' );
 				$products[] = array(
 					'name'        => $ship_title,
 					'count'       => 1,
@@ -97,7 +97,7 @@ class OrderMapper {
 			$person = (string) $order->get_billing_email();
 		}
 		if ( '' === $person ) {
-			$person = __( 'Клієнт', 'onebox-sync-for-woocommerce' );
+			$person = __( 'Customer', 'catcode-order-sync-with-onebox-for-woocommerce' );
 		}
 
 		// Delivery / payment details ride in the order content field.
@@ -109,12 +109,12 @@ class OrderMapper {
 		$ship_method = (string) $order->get_shipping_method();
 		if ( '' !== $ship_method ) {
 			/* translators: %s: shipping method name. */
-			$content_parts[] = sprintf( __( 'Доставка: %s', 'onebox-sync-for-woocommerce' ), $ship_method );
+			$content_parts[] = sprintf( __( 'Shipping: %s', 'catcode-order-sync-with-onebox-for-woocommerce' ), $ship_method );
 		}
 		$pay = (string) $order->get_payment_method_title();
 		if ( '' !== $pay ) {
 			/* translators: %s: payment method name. */
-			$content_parts[] = sprintf( __( 'Оплата: %s', 'onebox-sync-for-woocommerce' ), $pay );
+			$content_parts[] = sprintf( __( 'Payment: %s', 'catcode-order-sync-with-onebox-for-woocommerce' ), $pay );
 		}
 		// Only a real online payment counts: date_paid is stamped by
 		// payment_complete(), and offline methods (COD & friends) are excluded —
@@ -125,7 +125,7 @@ class OrderMapper {
 			$content_parts[] = html_entity_decode(
 				sprintf(
 					/* translators: %s: order total */
-					__( '✅ Оплачено онлайн (%s)', 'onebox-sync-for-woocommerce' ),
+					__( 'Paid online (%s)', 'catcode-order-sync-with-onebox-for-woocommerce' ),
 					wp_strip_all_tags( wc_price( $order->get_total(), array( 'currency' => $order->get_currency() ) ) )
 				),
 				ENT_QUOTES,
@@ -136,7 +136,7 @@ class OrderMapper {
 		$payload = array(
 			'externalid' => self::EXTERNAL_PREFIX . $order->get_id(),
 			/* translators: 1: order number, 2: shop host. */
-			'name'       => sprintf( __( 'Замовлення #%1$s (%2$s)', 'onebox-sync-for-woocommerce' ), $order->get_order_number(), (string) wp_parse_url( home_url(), PHP_URL_HOST ) ),
+			'name'       => sprintf( __( 'Order #%1$s (%2$s)', 'catcode-order-sync-with-onebox-for-woocommerce' ), $order->get_order_number(), (string) wp_parse_url( home_url(), PHP_URL_HOST ) ),
 			'clientname' => $person,
 			'products'   => $products,
 		);

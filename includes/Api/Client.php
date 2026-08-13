@@ -77,6 +77,44 @@ class Client {
 	}
 
 	/**
+	 * Look up an order by the externalid we send with every order.
+	 *
+	 * Used after a request that never came back: the process may exist in
+	 * OneBox already, and creating a second one would duplicate the deal.
+	 * Read endpoint is POST /order/get/ with a filter body.
+	 *
+	 * @param string $externalid External id, e.g. wc-123.
+	 * @return array{ok:bool,id:int,status:int}
+	 */
+	public function find_order_by_external( string $externalid ): array {
+		$res = $this->request(
+			'/order/get/',
+			array(
+				'filter' => array( 'externalid' => array( $externalid ) ),
+				'fields' => array( 'id', 'externalid' ),
+			)
+		);
+
+		$id = 0;
+		if ( $res['ok'] && isset( $res['json']['dataArray'] ) && is_array( $res['json']['dataArray'] ) ) {
+			foreach ( $res['json']['dataArray'] as $row ) {
+				// The filter is server-side, but never adopt a process that
+				// belongs to a different order because of a loose match.
+				if ( is_array( $row ) && (string) ( $row['externalid'] ?? '' ) === $externalid ) {
+					$id = (int) ( $row['id'] ?? 0 );
+					break;
+				}
+			}
+		}
+
+		return array(
+			'ok'     => $res['ok'],
+			'id'     => $id,
+			'status' => $res['status'],
+		);
+	}
+
+	/**
 	 * Business process list — used for the workflowid fallback.
 	 *
 	 * @return array List of ['id' =>, 'name' =>] rows (may be empty).
@@ -183,7 +221,7 @@ class Client {
 				'status' => 0,
 				'body'   => '',
 				'json'   => null,
-				'error'  => __( 'Підключення OneBox не налаштовано (домен, API-логін і пароль).', 'onebox-sync-for-woocommerce' ),
+				'error'  => __( 'The OneBox connection is not configured (domain, API login and password).', 'catcode-order-sync-with-onebox-for-woocommerce' ),
 			);
 		}
 
@@ -195,7 +233,7 @@ class Client {
 				'body'   => '',
 				'json'   => null,
 				/* translators: %s — error details. */
-				'error'  => sprintf( __( 'Не вдалося отримати API-токен OneBox: %s', 'onebox-sync-for-woocommerce' ), $auth['error'] ),
+				'error'  => sprintf( __( 'Could not obtain a OneBox API token: %s', 'catcode-order-sync-with-onebox-for-woocommerce' ), $auth['error'] ),
 			);
 		}
 
@@ -310,7 +348,7 @@ class Client {
 			}
 		}
 		if ( 401 === $status || 403 === $status ) {
-			return __( 'Невірні API-логін або пароль.', 'onebox-sync-for-woocommerce' );
+			return __( 'Wrong API login or password.', 'catcode-order-sync-with-onebox-for-woocommerce' );
 		}
 		return 'HTTP ' . $status;
 	}

@@ -1,0 +1,355 @@
+# Copyright (C) 2026 CatCode
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: CatCode Order Sync with OneBox for WooCommerce 0.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/catcode-order-sync-with-onebox-for-woocommerce\n"
+"Last-Translator: CatCode\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-13T10:07:10+00:00\n"
+"PO-Revision-Date: 2026-08-13 12:00+0300\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: catcode-order-sync-with-onebox-for-woocommerce\n"
+
+#. Plugin Name of the plugin
+#: catcode-order-sync-with-onebox-for-woocommerce.php
+msgid "CatCode Order Sync with OneBox for WooCommerce"
+msgstr "CatCode Order Sync with OneBox for WooCommerce"
+
+#. Plugin URI of the plugin
+#: catcode-order-sync-with-onebox-for-woocommerce.php
+msgid "https://catcode.com.ua/modules/onebox-sync-for-woocommerce/"
+msgstr ""
+
+#. Description of the plugin
+#: catcode-order-sync-with-onebox-for-woocommerce.php
+msgid "Sends WooCommerce orders to OneBox OS automatically: the order is created in the CRM right after checkout, with deduplication, retries and an event log."
+msgstr "Автоматична відправка замовлень WooCommerce у OneBox OS: замовлення створюється в CRM одразу після оформлення, з дедуплікацією, повторними спробами та журналом подій."
+
+#. Author of the plugin
+#: catcode-order-sync-with-onebox-for-woocommerce.php
+msgid "CatCode"
+msgstr ""
+
+#. Author URI of the plugin
+#: catcode-order-sync-with-onebox-for-woocommerce.php
+msgid "https://catcode.com.ua"
+msgstr ""
+
+#: catcode-order-sync-with-onebox-for-woocommerce.php:86
+msgid "CatCode Order Sync with OneBox for WooCommerce requires an active WooCommerce installation."
+msgstr "Для роботи CatCode Order Sync with OneBox for WooCommerce потрібен активний WooCommerce."
+
+#: includes/Admin/OrderMetaBox.php:28
+msgid "OneBox"
+msgstr "OneBox"
+
+#: includes/Admin/OrderMetaBox.php:42
+#: includes/Admin/OrderMetaBox.php:108
+msgid "Order not found."
+msgstr "Замовлення не знайдено."
+
+#: includes/Admin/OrderMetaBox.php:52
+msgid "Sent to OneBox"
+msgstr "Відправлено в OneBox"
+
+#: includes/Admin/OrderMetaBox.php:53
+msgid "OneBox ID:"
+msgstr "OneBox ID:"
+
+#: includes/Admin/OrderMetaBox.php:55
+msgid "When:"
+msgstr "Коли:"
+
+#: includes/Admin/OrderMetaBox.php:57
+msgid "Resending updates the same process in OneBox."
+msgstr "Повторна відправка оновить той самий процес у OneBox."
+
+#: includes/Admin/OrderMetaBox.php:59
+msgid "Sending failed"
+msgstr "Помилка відправки"
+
+#: includes/Admin/OrderMetaBox.php:64
+msgid "Not sent yet"
+msgstr "Ще не відправлено"
+
+#: includes/Admin/OrderMetaBox.php:71
+msgid "One attempt got no response from OneBox (timeout) and the order could not be looked up. It may have been created anyway — check the CRM before resending."
+msgstr "Одна зі спроб не отримала відповіді від OneBox (таймаут), і знайти замовлення не вдалося. Воно все одно могло створитися — перевірте CRM перед повторною відправкою."
+
+#: includes/Admin/OrderMetaBox.php:88
+msgid "Send to OneBox"
+msgstr "Відправити в OneBox"
+
+#: includes/Admin/OrderMetaBox.php:88
+msgid "Resend"
+msgstr "Відправити повторно"
+
+#. translators: %s — link to the log page.
+#: includes/Admin/OrderMetaBox.php:93
+#, php-format
+msgid "Event log: <a href=\"%s\">WooCommerce → OneBox Sync</a>."
+msgstr "Журнал подій: <a href=\"%s\">WooCommerce → OneBox Sync</a>."
+
+#: includes/Admin/OrderMetaBox.php:101
+#: includes/Admin/SettingsPage.php:201
+#: includes/Admin/SettingsPage.php:240
+msgid "You do not have permission to do this."
+msgstr "Немає прав на цю дію."
+
+#: includes/Admin/SettingsPage.php:37
+#: includes/Admin/SettingsPage.php:38
+#: includes/Admin/SettingsPage.php:52
+msgid "OneBox Sync"
+msgstr "OneBox Sync"
+
+#: includes/Admin/SettingsPage.php:53
+msgid "WooCommerce orders are sent to OneBox automatically."
+msgstr "Автоматична відправка замовлень WooCommerce у OneBox."
+
+#: includes/Admin/SettingsPage.php:62
+msgid "Settings"
+msgstr "Налаштування"
+
+#: includes/Admin/SettingsPage.php:63
+msgid "Log"
+msgstr "Журнал"
+
+#: includes/Admin/SettingsPage.php:84
+msgid "Connection"
+msgstr "Підключення"
+
+#: includes/Admin/SettingsPage.php:87
+msgid "OneBox domain"
+msgstr "Домен OneBox"
+
+#: includes/Admin/SettingsPage.php:89
+msgid "Your OneBox OS address without https:// (for example mybox.crm-onebox.com or your own domain)."
+msgstr "Адреса вашого OneBox OS без https:// (наприклад mybox.crm-onebox.com або власний домен)."
+
+#: includes/Admin/SettingsPage.php:92
+msgid "API login"
+msgstr "API-логін"
+
+#: includes/Admin/SettingsPage.php:96
+msgid "API password"
+msgstr "API-пароль"
+
+#: includes/Admin/SettingsPage.php:97
+msgid "•••••• saved — type a new one to replace it"
+msgstr "•••••• збережено — введіть новий, щоб замінити"
+
+#: includes/Admin/SettingsPage.php:98
+msgid "OneBox account → the “Users and employees” app → the employee card → REST API password. The plugin exchanges it for a token via /api/v2/token/get/ on its own. The password is stored encrypted."
+msgstr "Кабінет OneBox → застосунок «Користувачі та співробітники» → картка співробітника → REST API пароль. Плагін сам обмінює його на токен через /api/v2/token/get/. Пароль зберігається у зашифрованому вигляді."
+
+#: includes/Admin/SettingsPage.php:98
+msgid "Password saved."
+msgstr "Пароль збережено."
+
+#: includes/Admin/SettingsPage.php:104
+msgid "CRM routing (optional)"
+msgstr "Маршрутизація в CRM (необов’язково)"
+
+#: includes/Admin/SettingsPage.php:107
+msgid "Business process ID (workflowid)"
+msgstr "ID бізнес-процесу (workflowid)"
+
+#: includes/Admin/SettingsPage.php:108
+msgid "Stage ID (statusid)"
+msgstr "ID етапу (statusid)"
+
+#: includes/Admin/SettingsPage.php:109
+msgid "Source ID (sourceid)"
+msgstr "ID джерела (sourceid)"
+
+#: includes/Admin/SettingsPage.php:117
+msgid "Leave empty to let OneBox pick its own defaults. The IDs come from your OneBox account (business processes, stages, sources) or from the /api/v2/workflow/get/ and /api/v2/source/get/ methods."
+msgstr "Залиште порожнім, щоб OneBox обрав значення за замовчуванням. ID беруться з кабінету (бізнес-процеси, етапи, джерела) або методами /api/v2/workflow/get/ та /api/v2/source/get/."
+
+#: includes/Admin/SettingsPage.php:121
+msgid "Order sending"
+msgstr "Відправка замовлень"
+
+#: includes/Admin/SettingsPage.php:124
+msgid "Trigger statuses"
+msgstr "Тригерні статуси"
+
+#: includes/Admin/SettingsPage.php:130
+msgid "The order is sent to OneBox right after checkout, or when it moves into one of the selected statuses (unless it has been sent already)."
+msgstr "Замовлення відправляється в OneBox одразу після оформлення або при переході в один із вибраних статусів (якщо ще не відправлене)."
+
+#: includes/Admin/SettingsPage.php:133
+msgid "Payment status"
+msgstr "Статус оплати"
+
+#: includes/Admin/SettingsPage.php:134
+msgid "Mark online payments (add “Paid online” to the process comment for paid orders)"
+msgstr "Позначати оплату онлайн (для сплачених замовлень додавати «Оплачено онлайн» у коментар процесу)"
+
+#: includes/Admin/SettingsPage.php:137
+msgid "Zero-priced items"
+msgstr "Товари з нульовою ціною"
+
+#: includes/Admin/SettingsPage.php:138
+msgid "Skip lines priced at 0 (gifts, samples)"
+msgstr "Пропускати позиції з ціною 0 (подарунки, семпли)"
+
+#: includes/Admin/SettingsPage.php:141
+#: includes/OrderMapper.php:79
+msgid "Shipping"
+msgstr "Доставка"
+
+#: includes/Admin/SettingsPage.php:142
+msgid "Send the shipping cost as an order line"
+msgstr "Передавати вартість доставки окремим рядком замовлення"
+
+#: includes/Admin/SettingsPage.php:148
+msgid "Save settings"
+msgstr "Зберегти налаштування"
+
+#: includes/Admin/SettingsPage.php:156
+msgid "Test connection"
+msgstr "Перевірити з’єднання"
+
+#: includes/Admin/SettingsPage.php:157
+msgid "Requests a token via /api/v2/token/get/ and reads the list of business processes."
+msgstr "Отримує токен через /api/v2/token/get/ і читає список бізнес-процесів."
+
+#: includes/Admin/SettingsPage.php:165
+msgid "Latest events"
+msgstr "Останні події"
+
+#: includes/Admin/SettingsPage.php:168
+msgid "No events yet."
+msgstr "Подій ще немає."
+
+#: includes/Admin/SettingsPage.php:174
+msgid "Date"
+msgstr "Дата"
+
+#: includes/Admin/SettingsPage.php:175
+msgid "Order"
+msgstr "Замовлення"
+
+#: includes/Admin/SettingsPage.php:176
+msgid "Event"
+msgstr "Подія"
+
+#: includes/Admin/SettingsPage.php:177
+msgid "Attempt"
+msgstr "Спроба"
+
+#: includes/Admin/SettingsPage.php:179
+msgid "Result"
+msgstr "Результат"
+
+#: includes/Admin/SettingsPage.php:180
+msgid "Message"
+msgstr "Повідомлення"
+
+#: includes/Admin/SettingsPage.php:192
+msgid "Error"
+msgstr "Помилка"
+
+#: includes/Admin/SettingsPage.php:235
+msgid "Settings saved."
+msgstr "Налаштування збережено."
+
+#. translators: %d — HTTP status code.
+#: includes/Admin/SettingsPage.php:251
+#, php-format
+msgid "Connection successful (HTTP %d)."
+msgstr "З’єднання успішне (HTTP %d)."
+
+#. translators: %s — error details.
+#: includes/Admin/SettingsPage.php:254
+#, php-format
+msgid "Connection error: %s"
+msgstr "Помилка з’єднання: %s"
+
+#: includes/Api/Client.php:224
+#: includes/Sender.php:232
+msgid "The OneBox connection is not configured (domain, API login and password)."
+msgstr "Підключення OneBox не налаштовано (домен, API-логін і пароль)."
+
+#. translators: %s — error details.
+#: includes/Api/Client.php:236
+#, php-format
+msgid "Could not obtain a OneBox API token: %s"
+msgstr "Не вдалося отримати API-токен OneBox: %s"
+
+#: includes/Api/Client.php:351
+msgid "Wrong API login or password."
+msgstr "Невірні API-логін або пароль."
+
+#: includes/OrderMapper.php:100
+msgid "Customer"
+msgstr "Клієнт"
+
+#. translators: %s: shipping method name.
+#: includes/OrderMapper.php:112
+#, php-format
+msgid "Shipping: %s"
+msgstr "Доставка: %s"
+
+#. translators: %s: payment method name.
+#: includes/OrderMapper.php:117
+#, php-format
+msgid "Payment: %s"
+msgstr "Оплата: %s"
+
+#. translators: %s: order total
+#: includes/OrderMapper.php:128
+#, php-format
+msgid "Paid online (%s)"
+msgstr "✅ Оплачено онлайн (%s)"
+
+#. translators: 1: order number, 2: shop host.
+#: includes/OrderMapper.php:139
+#, php-format
+msgid "Order #%1$s (%2$s)"
+msgstr "Замовлення #%1$s (%2$s)"
+
+#. translators: %d — OneBox order id.
+#: includes/Sender.php:216
+#, php-format
+msgid "The order was already in OneBox under ID %d — an earlier attempt got through. No second order created."
+msgstr "Замовлення вже було в OneBox під ID %d — попередня спроба пройшла. Другого замовлення не створено."
+
+#. translators: %d — OneBox order id.
+#: includes/Sender.php:255
+#, php-format
+msgid "Order updated in OneBox (ID %d)."
+msgstr "Замовлення оновлено в OneBox (ID %d)."
+
+#: includes/Sender.php:270
+msgid "This order is already being sent to OneBox. Reload the page in a few seconds."
+msgstr "Це замовлення вже відправляється в OneBox. Перезавантажте сторінку за кілька секунд."
+
+#. translators: %d — OneBox order id.
+#: includes/Sender.php:281
+#, php-format
+msgid "The order is already in OneBox (ID %d)."
+msgstr "Замовлення вже в OneBox (ID %d)."
+
+#. translators: %d — OneBox order id.
+#: includes/Sender.php:289
+#, php-format
+msgid "The order was already in OneBox (ID %d) — no second order created."
+msgstr "Замовлення вже було в OneBox (ID %d) — другого не створено."
+
+#: includes/Sender.php:300
+msgid "Order sent to OneBox."
+msgstr "Замовлення відправлено в OneBox."
+
+#. translators: %d — OneBox order id.
+#: includes/Sender.php:333
+#, php-format
+msgid "Order sent to OneBox, ID %d."
+msgstr "Замовлення відправлено в OneBox, ID %d."

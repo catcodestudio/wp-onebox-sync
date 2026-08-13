@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: OneBox Sync for WooCommerce
- * Plugin URI: https://catcode.com.ua/plugins/onebox-sync-for-woocommerce
- * Description: Автоматична відправка замовлень WooCommerce у OneBox: створення замовлення в CRM після checkout, дедуплікація, повторні спроби, журнал подій.
- * Version: 0.1.0
+ * Plugin Name: CatCode Order Sync with OneBox for WooCommerce
+ * Plugin URI: https://catcode.com.ua/modules/onebox-sync-for-woocommerce/
+ * Description: Sends WooCommerce orders to OneBox OS automatically: the order is created in the CRM right after checkout, with deduplication, retries and an event log.
+ * Version: 0.2.0
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Requires Plugins: woocommerce
@@ -11,9 +11,9 @@
  * Author URI: https://catcode.com.ua
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: onebox-sync-for-woocommerce
+ * Text Domain: catcode-order-sync-with-onebox-for-woocommerce
  * Domain Path: /languages
- * WC requires at least: 7.0
+ * WC requires at least: 6.0
  * WC tested up to: 10.7
  *
  * @package CcOneboxSync
@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
 // Per-constant guards keep WP's activation sandbox-scrape (which includes this
 // file twice) from emitting "already defined" warnings — without ever skipping
 // the autoloader/hook registration below.
-defined( 'CCOB_VERSION' ) || define( 'CCOB_VERSION', '0.1.0' );
+defined( 'CCOB_VERSION' ) || define( 'CCOB_VERSION', '0.2.0' );
 defined( 'CCOB_FILE' ) || define( 'CCOB_FILE', __FILE__ );
 defined( 'CCOB_DIR' ) || define( 'CCOB_DIR', plugin_dir_path( __FILE__ ) );
 defined( 'CCOB_URL' ) || define( 'CCOB_URL', plugin_dir_url( __FILE__ ) );
@@ -83,7 +83,7 @@ add_action(
 			add_action(
 				'admin_notices',
 				static function () {
-					echo '<div class="notice notice-error"><p>' . esc_html__( 'Для роботи OneBox Sync for WooCommerce потрібен активний WooCommerce.', 'onebox-sync-for-woocommerce' ) . '</p></div>';
+					echo '<div class="notice notice-error"><p>' . esc_html__( 'CatCode Order Sync with OneBox for WooCommerce requires an active WooCommerce installation.', 'catcode-order-sync-with-onebox-for-woocommerce' ) . '</p></div>';
 				}
 			);
 			return;
